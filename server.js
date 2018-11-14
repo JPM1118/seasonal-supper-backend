@@ -1,6 +1,6 @@
 const http = require("http");
-const app = require("./app");
+const mongoUpdate = require("./mongoUpdate");
 const port = process.env.PORT || 3000;
-const server = http.createServer(app);
+const server = http.createServer(mongoUpdate);
 
 server.listen(port);
