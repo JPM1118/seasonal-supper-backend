@@ -1,8 +1,8 @@
 function addDataModel() {
   const mongoose = require("mongoose");
   const State = require("../models/State");
-  // const states = require('./../test-objects/locationState');
-  const states = ["arizona", "arkansas"];
+  const states = require("../test-objects/states");
+  // const states = ["arizona", "arkansas"];
 
   async function processArray(array) {
     for (const index of array) {

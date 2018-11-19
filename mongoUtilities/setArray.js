@@ -3,21 +3,20 @@ async function setArray(tempState, tempMonth) {
   const mongoose = require("mongoose");
   const State = require("../models/State");
 
-  // const tempState = "Alabama";
-  // const tempMonth = "February";
+  let array = await puppeteerFunc(tempState, tempMonth).catch(err =>
+    console.log(err)
+  );
 
-  let array = await puppeteerFunc(tempState, tempMonth);
-
-  array = array.filter(function(item, index) {
+  array = await array.filter(function(item, index) {
     return array.indexOf(item) >= index;
   });
 
-  console.log(array);
+  await console.log(array);
 
   let setObjProp = "month." + tempMonth + ".produce";
   let setObjPath = { [setObjProp]: array };
 
-  State.findOneAndUpdate({ state: tempState }, { $set: setObjPath })
+  await State.findOneAndUpdate({ state: tempState }, { $set: setObjPath })
     .exec()
     .then(results => console.log(results))
     .catch(err => console.log(err));

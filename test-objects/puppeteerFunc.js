@@ -1,10 +1,5 @@
 async function puppeteerFunc(state, month) {
   const puppeteer = require("puppeteer");
-  const states = require("./locationState");
-  const monthState = require("./months");
-
-  // let months = monthState.months;
-  // let state = states[1];
 
   const extractProduce = async (state, month, string) => {
     let url = `https://www.seasonalfoodguide.org/${state}/${string}-${month}`;
@@ -28,7 +23,6 @@ async function puppeteerFunc(state, month) {
     ...(await extractProduce(state, month, "early")),
     ...(await extractProduce(state, month, "late"))
   ];
-  // console.log(`produce for the month of ${month} is : ${arr}`);
 
   await browser.close();
   return arr;
