@@ -64,3 +64,5 @@ mongoUpdate.js
 
 mongoUtilities/
 test-objects/
+
+nodemon.json
